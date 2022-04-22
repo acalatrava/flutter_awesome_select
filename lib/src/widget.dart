@@ -53,6 +53,8 @@ class SmartSelect<T> extends StatefulWidget {
   /// The primary content of the widget.
   /// Used in trigger widget and header option
   final String? title;
+    
+  final TextStyle? titleStyle;
 
   /// The text displayed when the value is null
   final String? placeholder;
@@ -140,6 +142,7 @@ class SmartSelect<T> extends StatefulWidget {
   SmartSelect({
     Key? key,
     this.title,
+    this.titleStyle,
     this.placeholder,
     required this.isMultiChoice,
     this.singleSelected,
@@ -373,6 +376,7 @@ class SmartSelect<T> extends StatefulWidget {
   factory SmartSelect.single({
     Key? key,
     String? title,
+    TextStyle? titleStyle,
     String placeholder = 'Select one',
     required T selectedValue,
     S2Choice<T>? selectedChoice,
@@ -445,6 +449,7 @@ class SmartSelect<T> extends StatefulWidget {
     return SmartSelect<T>(
       key: key,
       title: title,
+      titleStyle: titleStyle,
       placeholder: placeholder,
       choiceItems: choiceItems,
       choiceLoader: choiceLoader,
@@ -697,6 +702,7 @@ class SmartSelect<T> extends StatefulWidget {
   factory SmartSelect.multiple({
     Key? key,
     String? title,
+    TextStyle? titleStyle,
     String placeholder = 'Select one or more',
     List<T> selectedValue = const [],
     List<S2Choice<T>>? selectedChoice,
@@ -768,6 +774,7 @@ class SmartSelect<T> extends StatefulWidget {
     return SmartSelect<T>(
       key: key,
       title: title,
+      titleStyle: titleStyle,
       placeholder: placeholder,
       choiceItems: choiceItems,
       choiceLoader: choiceLoader,
@@ -1003,7 +1010,7 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
   String? get title => widget.title ?? modalConfig.title;
 
   /// Returns [title] in `Text` widget
-  Widget get titleWidget => Text(title!);
+  Widget get titleWidget => Text(title!, style: widget.titleStyle!);
 
   /// Returns the modal widget
   Widget get modal {

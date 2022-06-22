@@ -127,7 +127,7 @@ class S2Tile<T> extends StatelessWidget {
     this.padding,
     this.body,
   })  : title = title ?? state.titleWidget,
-        value = value ?? Text(state.selected.toString()),
+        value = value ?? Text(state.selected.toString(), style: state.titleStyle),
         onTap = onTap ?? state.showModal,
         isLoading = isLoading ?? state.selected?.isResolving ?? false,
         isError = isError ?? state.selected?.isNotValid ?? false,

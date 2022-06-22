@@ -1012,6 +1012,8 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
   /// Returns [title] in `Text` widget
   Widget get titleWidget => Text(title!, style: widget.titleStyle!);
 
+  TextStyle get titleStyle => widget.titleStyle!;
+
   /// Returns the modal widget
   Widget get modal {
     return S2Modal(
